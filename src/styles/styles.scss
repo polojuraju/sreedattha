@@ -63,7 +63,7 @@ h2 {
     left: 0;
     right: 0;
     bottom: 0;
-    border: 8px solid #009688 ;
+    border: 8px solid rgb(255,174,0) ;
     border-top: 0;
     border-left: 0;
 }
@@ -71,7 +71,7 @@ h2 {
     content: '';
     display: block;
     position: absolute;
-    background-color: #009688 ;
+    background-color: rgb(255,174,0) ;
 }
 .list-classic-rectangle::after{
     width: 8px;
@@ -141,4 +141,10 @@ h2 {
 }
 .container.banner-wrap {
     position: relative;
+}
+.bg-img-custom .v-responsive__sizer{
+  padding-bottom: 85% !important;
+}
+.v-btn{
+  background: linear-gradient(to bottom, rgba(255,174,0,1) 0%,rgba(255,138,0,1) 100%) !important;
 }

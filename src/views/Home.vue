@@ -39,7 +39,7 @@
       <v-icon>mdi-arrow-up</v-icon>
     </v-btn>
     <v-main>
-      <section id="home">
+      <!-- <section id="home">
          <v-layout column align-center justify-center class="white--text">
         <v-carousel>
           <v-carousel-item
@@ -57,15 +57,15 @@
           </v-carousel-item>
         </v-carousel>
          </v-layout>
-      </section>
-      <!-- <section id="home">
-        <v-parallax :src="imageLink.logo" height="600">
+      </section> -->
+      <section id="home">
+        <v-parallax :src="imageLink.backgroundImage" height="500">
           <v-layout column align-center justify-center class="white--text">
             <h1
               class="white--text mb-2 display-1 text-xs-center"
               style="font-weight: 900; text-shadow: 3px 2px #000000"
             >
-              The social network for epic content
+              Connecting people with their lifestyle
             </h1>
             <div
               class="white--text subheading mb-3 text-xs-center"
@@ -83,18 +83,22 @@
             </v-btn>
           </v-layout>
         </v-parallax>
-      </section> -->
-      <section
-        class="section-lg bg-white bg-img-custom"
-        :style="cssProps"
-        id="about"
-      >
+      </section>
+      <!-- :style="cssProps" -->
+      <section class="section-lg bg-white bg-img-custom" id="about">
         <v-container>
           <v-layout wrap class="my-5">
             <v-row
-              class="row justify-content-between row-60 row-md-30 flex-wrap-reverse flex-lg-wrap"
+              class="
+                row
+                justify-content-between
+                row-60 row-md-30
+                flex-wrap-reverse flex-lg-wrap
+              "
             >
-              <v-col cols="7" sm="7"> </v-col>
+              <v-col cols="7" sm="7" justify-center align-center>
+                <v-img :src="imageLink.whyChoose" max-width="650"></v-img>
+              </v-col>
               <v-col cols="5" sm="5">
                 <div class="box-custom-2">
                   <h2 class="section-title">Why Choose Us</h2>
@@ -158,10 +162,7 @@
               v-for="(item, i) in services"
               :key="i"
             >
-              <v-img
-                src="https://cdn.vuetifyjs.com/images/cards/sunshine.jpg"
-                height="300px"
-              ></v-img>
+              <v-img :src="item.image" height="300px" />
 
               <v-card-title> {{ item.title }} </v-card-title>
               <v-card-text>
@@ -181,34 +182,41 @@
                   <v-card class="mx-auto" max-width="300">
                     <v-card-title>
                       <v-icon large left> mdi-twitter </v-icon>
-                      <span class="text-h6 font-weight-light">Twitter</span>
+                      <span class="text-h6 font-weight-light"
+                        >Rakesh Raidu</span
+                      >
                     </v-card-title>
 
                     <v-card-text>
-                      "Turns out semicolon-less style is easier and safer in TS
-                      because most gotcha edge cases are type invalid as well."
+                      "Had a great experience with you regarding the interior
+                      designing and the cnc work."
                     </v-card-text>
                   </v-card>
                   <v-card class="mx-auto" max-width="300">
                     <v-card-title>
                       <v-icon large left> mdi-twitter </v-icon>
-                      <span class="text-h6 font-weight-light">Twitter</span>
+                      <span class="text-h6 font-weight-light"
+                        >Chandra Shekar</span
+                      >
                     </v-card-title>
 
                     <v-card-text>
-                      "Turns out semicolon-less style is easier and safer in TS
-                      because most gotcha edge cases are type invalid as well."
+                      "Have become a regular customer in a very short span of
+                      time. Very approachable staff, service and delivery on
+                      time. Fully satisfied. It's five star to sree dattha and
+                      team."
                     </v-card-text>
                   </v-card>
                   <v-card class="mx-auto" max-width="300">
                     <v-card-title>
                       <v-icon large left> mdi-twitter </v-icon>
-                      <span class="text-h6 font-weight-light">Twitter</span>
+                      <span class="text-h6 font-weight-light">Pavan</span>
                     </v-card-title>
 
                     <v-card-text>
-                      "Turns out semicolon-less style is easier and safer in TS
-                      because most gotcha edge cases are type invalid as well."
+                      "Liked the work in reasonable rates.loved the design and
+                      finishing which I used for my new home decor. Responsible
+                      staff delivered on time."
                     </v-card-text>
                   </v-card>
                 </v-row>
@@ -258,7 +266,8 @@
 
 <script>
 import logo from "../assets/img.jpeg";
-import backgroundImage from "../assets/image-1.jpg";
+import backgroundImage from "../assets/images/home.jpg";
+import whyChoose from "../assets/images/why-choose.jpg";
 export default {
   data: () => ({
     scrollImages: [
@@ -266,14 +275,14 @@ export default {
         backgroundImage: backgroundImage,
       },
       {
-        backgroundImage: `url(${require("@/assets/home.png")})`,
+        backgroundImage: `url(${require("@/assets/images/home.jpg")})`,
       },
       {
         backgroundImage: `url(${require("@/assets/image-1.jpg")})`,
       },
     ],
     cssProps: {
-      backgroundImage: `url(${require("@/assets/home.png")})`,
+      backgroundImage: `url(${require("@/assets/images/why-choose.jpg")})`,
     },
     tab: null,
     fab: false,
@@ -288,7 +297,7 @@ export default {
         tab: "#about",
       },
       {
-        menu: "Portfolio",
+        menu: "Services",
         tab: "#services",
       },
       { menu: "Contact", tab: "#contact" },
@@ -296,6 +305,7 @@ export default {
     imageLink: {
       logo: logo,
       backgroundImage: backgroundImage,
+      whyChoose: whyChoose,
     },
     icons: ["mdi-facebook", "mdi-twitter", "mdi-linkedin", "mdi-instagram"],
     socials: [
@@ -324,43 +334,44 @@ export default {
           "Our designers generate various yet always original ideas that will surely fit your needs.",
       },
       {
-        title: "Professional Team",
+        title: "On Time Delivery",
         content:
           "Our team includes only the best decorators and interior designers in the industry.",
-      },
-      {
-        title: "Unusual Ideas",
-        content:
-          "Our designers generate various yet always original ideas that will surely fit your needs.",
       },
     ],
     services: [
       {
+        image: require("@/assets/images/Modular.jpeg"),
         title: "Modular Kitchens",
         content:
           "Modular kitchen is a new and innovative solution to the challenges posed by traditional kitchens. Functional and durable, it  makes everyday kitchen tasks easy to manage.",
       },
       {
+        image: require("@/assets/images/LivingRoom.jpeg"),
         title: "Living Rooms",
         content:
           "Modular kitchen is a new and innovative solution to the challenges posed by traditional kitchens. Functional and durable, it  makes everyday kitchen tasks easy to manage. ",
       },
       {
+        image: require("@/assets/images/BedRoom.jpeg"),
         title: "Bed Rooms",
         content:
           "Modular kitchen is a new and innovative solution to the challenges posed by traditional kitchens. Functional and durable, it  makes everyday kitchen tasks easy to manage. ",
       },
       {
+        image: require("@/assets/images/Tv.jpeg"),
         title: "TV Unit",
         content:
           "Modular kitchen is a new and innovative solution to the challenges posed by traditional kitchens. Functional and durable, it  makes everyday kitchen tasks easy to manage. ",
       },
       {
+        image: require("@/assets/images/FalseCeiling.jpeg"),
         title: "False Celing",
         content:
           "Modular kitchen is a new and innovative solution to the challenges posed by traditional kitchens. Functional and durable, it  makes everyday kitchen tasks easy to manage. ",
       },
       {
+        image: `url(${require("@/assets/images/why-choose.jpg")})`,
         title: "CNC Works",
         content:
           "Modular kitchen is a new and innovative solution to the challenges posed by traditional kitchens. Functional and durable, it  makes everyday kitchen tasks easy to manage. ",
